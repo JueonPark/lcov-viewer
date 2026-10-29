@@ -43,6 +43,14 @@ yarn add -D @lcov-viewer/cli
 npm install -D @lcov-viewer/cli
 ```
 
+## Initial tree view
+
+Reports start with **All Files** expanded so top-level files and directories are
+visible. All nested directories start collapsed. Click a directory to expand it,
+or use **Expand All** to show every file. **Collapse All** still collapses the
+entire tree, including All Files. This applies to the web viewer and generated
+HTML reports.
+
 ## Themes
 
 Use **Theme** in the web viewer header or the generated HTML report toolbar to

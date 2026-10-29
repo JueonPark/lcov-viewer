@@ -1,8 +1,6 @@
 import { BRANCH_NODE, calculatePercentage, clsx, resolveCoverageClass } from '@lcov-viewer/core';
 import classes from './renderRow.module.less';
 
-const rowClasses = clsx(classes.root, classes.folder, classes.open);
-
 const coverageClasses = {
   good: clsx(classes.numbers, classes.coverage, classes.good),
   normal: clsx(classes.numbers, classes.coverage, classes.normal),
@@ -34,7 +32,13 @@ const renderRow = (row, { linkSelector }) => {
     ...renderMetricCells(row.node.metrics, 'functions'),
     ...renderMetricCells(row.node.metrics, 'branches'),
   ];
-  const className = row.node.type === BRANCH_NODE ? rowClasses : classes.root;
+  const isBranch = row.node.type === BRANCH_NODE;
+  const className = clsx(
+    classes.root,
+    isBranch && classes.folder,
+    isBranch && row.depth === 0 && classes.open,
+    row.depth > 1 && classes.hidden,
+  );
 
   return `<tr class="${className}" data-node="${row.node.path}" data-node-type="${row.node.type}">${cells.join('')}</tr>`;
 };
