@@ -1,11 +1,13 @@
 .root {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   padding: 1rem 0;
 }
 
 .icon {
-  margin-right: 1rem;
+  flex-shrink: 0;
 }
 
 .title {
@@ -24,9 +26,14 @@
 }
 
 .github, .github:visited, .github:active {
-  color: #24292f;
+  color: var(--github-color);
 }
 
 .npm, .npm:visited, .npm:active {
-  color: #cb0000;
+  color: var(--npm-color);
+}
+
+@media (max-width: 600px) {
+  .title { font-size: 1.5rem; }
+  .links a { margin-left: 0.75rem; font-size: 2rem; }
 }

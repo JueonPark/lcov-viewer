@@ -4,7 +4,7 @@
 @import 'prismjs/themes/prism.css';
 
 :global(.token.uncovered-branch) {
-  background-color: fade(@color-bad, @color-fade-0);
+  background-color: var(--uncovered-branch-bg);
   outline: @color-bad solid 1px;
   outline-offset: 1px;
   border-radius: @border-radius;
@@ -28,14 +28,14 @@
   span {
     .code-font;
     padding: 0 0.5rem;
-    background: fade(@color-inactive, @color-fade-1);
+    background: var(--inactive-bg);
 
     &.hit {
-      background: fade(@color-good, @color-fade-1);
+      background: var(--coverage-good-bg);
     }
 
     &.notHit {
-      background: fade(@color-bad, @color-fade-1);
+      background: var(--coverage-bad-bg);
     }
   }
 }
@@ -47,5 +47,52 @@
   .pre {
     margin: 0;
     padding: 0 0.5rem;
+  }
+
+  // Let the bundled Prism theme retain its original colors for Original.
+  :global(html:not([data-theme='original'])) & .pre {
+    color: var(--text);
+    background: transparent;
+    text-shadow: none;
+
+    &::selection, ::selection {
+      background: var(--selection);
+    }
+
+    :global(.token) {
+      text-shadow: none;
+    }
+
+    :global(.token.comment), :global(.token.prolog),
+    :global(.token.doctype), :global(.token.cdata) {
+      color: var(--syntax-comment);
+    }
+
+    :global(.token.punctuation), :global(.token.operator),
+    :global(.token.entity), :global(.token.url) {
+      color: var(--text);
+      background: transparent;
+    }
+
+    :global(.token.property), :global(.token.tag),
+    :global(.token.boolean), :global(.token.number),
+    :global(.token.constant), :global(.token.symbol), :global(.token.deleted) {
+      color: var(--syntax-number);
+    }
+
+    :global(.token.selector), :global(.token.attr-name),
+    :global(.token.string), :global(.token.char),
+    :global(.token.builtin), :global(.token.inserted) {
+      color: var(--syntax-string);
+    }
+
+    :global(.token.atrule), :global(.token.attr-value), :global(.token.keyword) {
+      color: var(--syntax-keyword);
+    }
+
+    :global(.token.function), :global(.token.class-name),
+    :global(.token.regex), :global(.token.important), :global(.token.variable) {
+      color: var(--syntax-function);
+    }
   }
 }

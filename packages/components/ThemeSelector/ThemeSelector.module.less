@@ -1,0 +1,42 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+  font-size: 0.875rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.swatches {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  span {
+    width: 0.625rem;
+    height: 1rem;
+    background: var(--surface);
+  }
+
+  span:nth-child(2) { background: var(--accent); }
+  span:nth-child(3) { background: var(--text); }
+}
+
+.select {
+  padding: 0.5rem 0.625rem;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+
+  &:hover { border-color: var(--accent); }
+}

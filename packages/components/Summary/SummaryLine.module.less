@@ -31,21 +31,21 @@
   margin-left: 1rem;
   text-align: right;
   padding: 0.125em 0.25em;
-  background: rgba(0,0,0,0.19);
+  background: var(--badge-bg);
   border-radius: @border-radius;
 
   &.bad {
-    background-color: fade(@color-bad, @color-fade-1);
+    background-color: var(--coverage-bad-bg);
     color: @color-bad;
   }
 
   &.normal {
-    background-color: fade(@color-normal, @color-fade-1);
+    background-color: var(--coverage-normal-bg);
     color: @color-normal;
   }
 
   &.good {
-    background-color: fade(@color-good, @color-fade-1);
+    background-color: var(--coverage-good-bg);
     color: @color-good;
   }
 }

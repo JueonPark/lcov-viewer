@@ -1,6 +1,7 @@
 @import "colors";
 @import "layout";
 @import "typography";
+@import "themes";
 
 html {
   font-size: @base-font-size;
@@ -19,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   color: @color-black;
+  background-color: var(--page);
 }
 
 ::selection {
@@ -37,7 +39,12 @@ a, a:visited {
 }
 
 a:hover {
-  color: darken(@color-main, 20%);
+  color: var(--accent-hover);
+}
+
+a:focus-visible, button:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 table {
@@ -52,8 +59,8 @@ thead {
       white-space: nowrap;
       text-align: left;
       font-weight: normal;
-      background-color: fade(@color-main, @color-fade-7);
-      color: contrast(fade(@color-main, @color-fade-7));
+      background-color: var(--table-heading);
+      color: var(--table-heading-text);
 
       &:first-child {
         padding-left: 1rem;
@@ -72,14 +79,14 @@ tbody {
   td {
     padding: 0.5rem;
     cursor: inherit;
-    border-bottom: 1px solid fade(@color-black, @color-fade-0);
+    border-bottom: 1px solid var(--table-border);
 
     &:first-child {
-      border-left: 1px solid fade(@color-main, @color-fade-2);
+      border-left: 1px solid var(--table-side-border);
     }
 
     &:last-child {
-      border-right: 1px solid fade(@color-main, @color-fade-2);
+      border-right: 1px solid var(--table-side-border);
     }
   }
 }
@@ -88,7 +95,8 @@ tfoot {
   tr:first-child {
     td {
       padding: 0.5rem;
-      background-color: fade(@color-main, @color-fade-7);
+      background-color: var(--table-heading);
+      color: var(--table-footer-text);
 
       &:first-child {
         border-bottom-left-radius: @border-radius;

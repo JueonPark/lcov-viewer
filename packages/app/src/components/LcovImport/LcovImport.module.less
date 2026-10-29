@@ -56,6 +56,7 @@
 
 .dropper {
   .shadow;
+  background-color: var(--surface);
   cursor: pointer;
   flex: 0 1 50%;
   width: 50%;
@@ -81,7 +82,7 @@
   }
 
   &.active {
-    background-color: fade(@color-main, @color-fade-0);
+    background-color: var(--accent-subtle);
   }
 }
 
