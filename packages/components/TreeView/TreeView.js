@@ -7,13 +7,13 @@ import useCollapse from './useCollapse';
 import classes from './TreeView.module.less';
 
 const TreeView = ({ coverage, linkSelector }) => {
-  const [collapseContainer, onCollapseAll, onExpandAll] = useCollapse();
   const tableHTML = useMemo(() => {
     const rows = buildTableRowsData(coverage);
     const bodyContent = rows.map(row => renderRow(row, { linkSelector }));
     
     return { __html: renderTable(bodyContent) };
   }, [coverage, linkSelector]);
+  const [collapseContainer, onCollapseAll, onExpandAll] = useCollapse(tableHTML);
 
 
   return (
