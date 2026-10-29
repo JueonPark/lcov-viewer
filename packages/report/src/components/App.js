@@ -1,4 +1,4 @@
-import { Footer } from '@lcov-viewer/components';
+import { Footer, ThemeSelector } from '@lcov-viewer/components';
 import { createHashHistory } from 'history';
 import Router from 'preact-router';
 import React from 'react';
@@ -8,6 +8,10 @@ import classes from './App.module.less';
 
 const App = ({ date, coverage }) => (
   <div className={classes.root}>
+    <header className={classes.toolbar}>
+      <span className={classes.title}>LCOV Viewer</span>
+      <ThemeSelector/>
+    </header>
     <Router history={createHashHistory()}>
       <Report path="/" coverage={coverage}/>
       <Details path="/details/:file" coverage={coverage}/>

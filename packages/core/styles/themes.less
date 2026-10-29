@@ -1,0 +1,88 @@
+// Color Hunt base palettes, adapted for readable UI and coverage status colors.
+// Keep IDs aligned with components/ThemeSelector/themes.js.
+.palette(@scheme; @page; @surface; @text; @muted; @accent; @hover; @header; @headerText; @good; @normal; @bad) {
+  color-scheme: @scheme;
+  --page: @page;
+  --surface: @surface;
+  --text: @text;
+  --text-muted: @muted;
+  --accent: @accent;
+  --accent-hover: @hover;
+  --accent-subtle: mix(@accent, @page, 9%);
+  --row-hover: mix(@accent, @page, 12%);
+  --selection: mix(@accent, @page, 25%);
+  --border: mix(@text, @page, 28%);
+  --table-border: var(--border);
+  --table-side-border: var(--border);
+  --table-heading: @header;
+  --table-heading-text: @headerText;
+  --table-footer-text: @headerText;
+  --shadow-soft: fade(@accent, 29%);
+  --shadow-strong: fade(@accent, 59%);
+  --coverage-good: @good;
+  --coverage-normal: @normal;
+  --coverage-bad: @bad;
+  --coverage-good-bg: mix(@good, @page, 10%);
+  --coverage-normal-bg: mix(@normal, @page, 10%);
+  --coverage-bad-bg: mix(@bad, @page, 10%);
+  --uncovered-branch-bg: var(--coverage-bad-bg);
+  --inactive-bg: mix(@muted, @page, 10%);
+  --badge-bg: var(--inactive-bg);
+  --github-color: @text;
+  --npm-color: @bad;
+  --syntax-comment: @muted;
+  --syntax-keyword: @accent;
+  --syntax-string: @good;
+  --syntax-function: @normal;
+  --syntax-number: @bad;
+}
+
+// Original upstream palette, including the original alpha values and Prism theme.
+:root[data-theme='original'] {
+  .palette(light; #ffffff; #ffffff; #4a4a4a; #7f7f7f; #c9369b; darken(#c9369b, 20%);
+    fade(#c9369b, 79%); contrast(fade(#c9369b, 79%)); #248f29; #d3b334; #d3343c);
+  --accent-subtle: fade(#c9369b, 9%);
+  --row-hover: fade(#c9369b, 19%);
+  --selection: fade(#c9369b, 19%);
+  --table-border: fade(#4a4a4a, 9%);
+  --table-side-border: fade(#c9369b, 29%);
+  --table-footer-text: #4a4a4a;
+  --coverage-good-bg: fade(#248f29, 19%);
+  --coverage-normal-bg: fade(#d3b334, 19%);
+  --coverage-bad-bg: fade(#d3343c, 19%);
+  --uncovered-branch-bg: fade(#d3343c, 9%);
+  --inactive-bg: fade(#7f7f7f, 19%);
+  --badge-bg: rgba(0, 0, 0, 0.19);
+  --github-color: #24292f;
+  --npm-color: #cb0000;
+}
+
+// https://colorhunt.co/palette/f9f7f7dbe2ef3f72af112d4e
+:root, :root[data-theme='blue'] {
+  .palette(light; #f9f7f7; #ffffff; #112d4e; #52627b; #35649d; #2f5584;
+    #dbe2ef; #112d4e; #176b3b; #805900; #b52a3b);
+}
+
+// https://colorhunt.co/palette/f4eeffdcd6f7a6b1e1424874
+:root[data-theme='lavender'] {
+  .palette(light; #f4eeff; #fbf9ff; #424874; #636588; #6051a5; #453777;
+    #dcd6f7; #424874; #216b43; #795400; #ae2949);
+}
+
+// https://colorhunt.co/palette/222831393e4600adb5eeeeee
+:root[data-theme='midnight'] {
+  .palette(dark; #222831; #393e46; #eeeeee; #bbc3ce; #55d6dc; #a5edf0;
+    #00adb5; #222831; #84d6a0; #f2ca72; #ff929b);
+}
+
+// https://colorhunt.co/palette/27374d526d829db2bfdde6ed
+:root[data-theme='slate'] {
+  .palette(dark; #27374d; #31445c; #dde6ed; #b5c6d2; #b4d6ef; #e2f1fc;
+    #526d82; #ffffff; #a2dfb6; #f3d496; #ffadb6);
+}
+
+// https://colorhunt.co/palette/2c36393f4e4fa27b5cdcd7c9
+:root[data-theme='forest'] {
+  .palette(dark; #2c3639; #3f4e4f; #dcd7c9; #c0c4b9; #e2b98e; #f6dbc0;
+    #a27b5c; #101719; #a6d5a4; #f0cf8b; #f6a0a3);
+}
